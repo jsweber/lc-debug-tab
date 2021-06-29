@@ -9,6 +9,7 @@ const TreeNode = require('./tree-node')
  */
 const createBST = source => {
     if (source.length === 0 || source[i] === null) return new TreeNode(null)
+    // todo: 先去考虑有哪些树，再去考虑生成怎样的数组？？？
     // 根节点距离下一个左子数下标距离
     // （1）父节点，左右子数都在 -> next：根下标为左节点，step为2; 
     // （2）父节点，左子树为null，右节点存在 -> next：根下标为右节点，step为1
@@ -28,6 +29,8 @@ const createBST = source => {
 
     return rootNode
 }
+// todo
+const createArrayFromBSTree = () => {}
 
 
 module.exports = createBST
