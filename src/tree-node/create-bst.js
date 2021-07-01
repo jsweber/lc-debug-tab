@@ -2,9 +2,13 @@ const TreeNode = require('./tree-node')
 
 const isEmpty = v => v === null || v === undefined
 
+const calcLeftIndexleftIsNull = i => i + 1
+const calcLeftIndexRightIsNull = i => i + 2
+const calcLeftIndexNoNull = i => 2 
+
 /**
  * 
- * @param {array<number|string>} source  [1, null, 2, null, null, 2]
+ * @param {array<number|string>} source  [1, null, 2, 2] [1, 2, null, 2], []
  */
 const createBST = source => {
     if (!Array.isArray(source) || source.length === 0) return null
