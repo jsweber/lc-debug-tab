@@ -47,12 +47,48 @@ const createBST = source => {
     return rootNode
 }
 
+const createBT = source => {
+    if (!Array.isArray(source) || source.length ===0 ) return null  
+
+    let isLeft = true,
+        node = new TreeNode(source[0])
+    
+    
+    const root = node,
+        parentNodeQueue = []
+    parentNodeQueue.unshift(node)
+
+    for (let i = 1; i < source.length; i++){
+        node = parentNodeQueue[0]
+
+        if (isLeft){
+            if (source[i] !== null){
+                node.left = new TreeNode(source[i])
+                parentNodeQueue.push(node.left)
+            }
+            isLeft = false
+        } else {
+            if (source[i] !== null){
+                node.right = new TreeNode(source[i])
+                parentNodeQueue.push(node.right)
+            }
+            parentNodeQueue.shift()
+            isLeft = true
+        }
+    }
+
+
+    return root
+}
+
 
 // todo
 const createArrayFromBSTree = () => {}
 //todo 能不能把null缩减些
-const root = createBST([1, null, 15,  null, null, 23, null, null, null, null, null, 30, 35])
+const root = createBT([1, null, 2, 12, 13, null, 20, 30, 40])
 TreeNode.showTree(root)
 
 
-module.exports = createBST
+module.exports = {
+    createBT
+}
