@@ -86,7 +86,7 @@ const createBT = source => {
 const createArrayFromBSTree = () => {}
 //todo 能不能把null缩减些
 const root = createBT([1, null, 2, 12, 13, null, 20, 30, 40])
-TreeNode.showTree(root)
+// TreeNode.showTree(root)
 
 
 module.exports = {
